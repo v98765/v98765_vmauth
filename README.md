@@ -12,7 +12,7 @@ Role Variables
 --------------
 
 Name | Default Value
----|---|---
+---|---
 `vmauth_version` | 1.69.0
 `vmauth_system_user` | vmauth
 `vmauth_system_group` | vmauth
