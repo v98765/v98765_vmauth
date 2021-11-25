@@ -207,7 +207,7 @@ INFO     Running default > login
 journalctl -e -u vmauth
 curl -s -u 'fullaccess:demo' -g 'http://localhost:8427/metrics'
 curl -s -u 'readonly:demo' -g 'http://localhost:8427/-/reload'
-remocurl -s -u 'readonly:demo' -g 'http://localhost:8427/-/reload?authKey=RkU7FhjinrCv7N7f'
+curl -s -u 'readonly:demo' -g 'http://localhost:8427/-/reload?authKey=RkU7FhjinrCv7N7f'
 ```
 Править роль и повторять `molecule converge` до получения нужного результата.
 После чего `molecule destroy` и тест в т.ч. на идемпотентность `molecule test`.
