@@ -46,6 +46,7 @@ Example Playbook
 host_vars/vmdb.yml
 ```yaml
 vmauth_reloadauthkey: "new_password"
+vmauth_users:
 - username: "new_users1"
   password: "new_pass1"
   url_prefix: "http://localhost:8428"
