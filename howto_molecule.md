@@ -179,9 +179,10 @@ sudo -- bash -c 'source /home/ansible4/a4/bin/activate ; molecule test'
 ## дистрибутив vmutils
 
 ```sh
+export vmauth_version='1.69.0'
 mkdir -p /var/tmp/archive
 cd /var/tmp/archive
-wget https://github.com/VictoriaMetrics/VictoriaMetrics/releases/download/v1.69.0/vmutils-amd64-v1.69.0.tar.gz
+wget https://github.com/VictoriaMetrics/VictoriaMetrics/releases/download/v${vmauth_version}/vmutils-amd64-v${vmauth_version}.tar.gz
 ```
 
 ## Тест
