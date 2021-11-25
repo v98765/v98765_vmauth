@@ -1,0 +1,17 @@
+---
+- name: Create system group
+  group:
+    name: "{{ vmauth_system_group }}"
+    state: present
+    system: true
+  when: vmauth_system_group != "root"
+
+- name: Create system user
+  user:
+    name: "{{ vmauth_system_user }}"
+    groups: "{{ vmauth_system_group }}"
+    append: true
+    shell: /usr/sbin/nologin
+    system: true
+    createhome: false
+  when: vmauth_system_user != "root"

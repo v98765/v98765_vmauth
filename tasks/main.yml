@@ -1,0 +1,23 @@
+---
+- import_tasks: preinstall.yml
+  tags:
+    - vmauth_install
+    - vmauth_configure
+    - vmauth_run
+
+- import_tasks: install.yml
+  tags:
+    - vmauth_install
+
+- import_tasks: configure.yml
+  tags:
+    - vmauth_configure
+
+- name: ensure vmauth service is started and enabled
+  systemd:
+    daemon_reload: true
+    name: vmauth
+    enabled: true
+    state: started
+  tags:
+    - vmauth_run

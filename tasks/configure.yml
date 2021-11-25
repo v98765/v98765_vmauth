@@ -1,0 +1,30 @@
+---
+- name: create systemd service unit
+  template:
+    src: vmauth.service.j2
+    dest: /lib/systemd/system/vmauth.service
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart vmauth
+
+- name: create vmauth default env file
+  template:
+    src: vmauth.j2
+    dest: /etc/default/vmauth
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart vmauth
+
+- name: configure vmauth.yml
+  template:
+    src: vmauth.yml.j2
+    dest: "{{ vmauth_config_dir }}/vmauth.yml"
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - reload vmauth

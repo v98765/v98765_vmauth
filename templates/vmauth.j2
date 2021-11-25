@@ -1,0 +1,10 @@
+{{ ansible_managed | comment }}
+
+# must have
+VMAUTH_auth_config='{{ vmauth_config_dir }}/vmauth.yml'
+{% if vmauth_reloadauthkey | length > 0 %}
+# It is recommended protecting /-/reload endpoint with -reloadAuthKey command-line flag,
+# so external users couldn't trigger config reload.
+# curl host/-/reload?authKey=reloadpassword
+VMAUTH_reloadAuthKey='{{ vmauth_reloadauthkey }}'
+{% endif %}

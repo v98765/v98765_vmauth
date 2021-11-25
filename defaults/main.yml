@@ -1,0 +1,28 @@
+---
+# defaults file for v98765_vmauth
+vmauth_version: 1.69.0
+vmauth_system_user: "vmauth"
+vmauth_system_group: "vmauth"
+vmauth_config_dir: "/etc/vmauth"
+vmauth_install_dir: "/usr/local/bin"
+vmauth_repo_dir: "/var/tmp/archive"
+# It is recommended protecting /-/reload endpoint with -reloadAuthKey command-line flag,
+# so external users couldn't trigger config reload.
+# curl host/-/reload?authKey=reloadpassword
+# pwgen -sB 16 1
+vmauth_reloadauthkey: "RkU7FhjinrCv7N7f"
+
+vmauth_users:
+- username: "fullaccess"
+  password: "demo"
+  url_prefix: "http://localhost:8428"
+
+- username: "readonly"
+  password: "demo"
+  url_map:
+  - src_paths:
+    - "/api/v1/query.*"
+    - "/api/v1/series.*"
+    - "/api/v1/label.+"
+    - "/vmui.*"
+    url_prefix: "http://localhost:8428"

@@ -1,0 +1,29 @@
+{{ ansible_managed | comment }}
+
+[Unit]
+Description=vmauth is a simple auth proxy, router and load balancer for VictoriaMetrics
+Documentation=https://docs.victoriametrics.com/vmauth.html
+After=network-online.target auditd.service
+
+[Service]
+Type=simple
+User={{ vmauth_system_user }}
+Group={{ vmauth_system_group }}
+EnvironmentFile=-/etc/default/vmauth
+ExecReload=/bin/kill -HUP $MAINPID
+ExecStart={{ vmauth_install_dir }}/vmauth -envflag.enable -envflag.prefix=VMAUTH_
+
+SyslogIdentifier=vmauth
+Restart=always
+RestartSec=30
+
+PrivateTmp=yes
+ProtectHome=yes
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectControlGroups=true
+ProtectKernelModules=true
+ProtectKernelTunables=yes
+
+[Install]
+WantedBy=multi-user.target
