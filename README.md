@@ -13,7 +13,7 @@ Role Variables
 
 Name | Default Value
 ---|---
-`vmauth_version` | 1.69.0
+`vmauth_version` | 1.70.0
 `vmauth_system_user` | vmauth
 `vmauth_system_group` | vmauth
 `vmauth_config_dir` | /etc/vmauth
@@ -28,7 +28,7 @@ Read this [https://docs.victoriametrics.com/#environment-variables](https://docs
 ```sh
 mkdir -p /var/tmp/archive
 cd /var/tmp/archive
-wget https://github.com/VictoriaMetrics/VictoriaMetrics/releases/download/v1.69.0/vmutils-amd64-v1.69.0.tar.gz
+wget https://github.com/VictoriaMetrics/VictoriaMetrics/releases/download/v1.70.0/vmutils-amd64-v1.70.0.tar.gz
 ```
 
 Example Playbook

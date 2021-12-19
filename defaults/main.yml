@@ -1,6 +1,6 @@
 ---
 # defaults file for v98765_vmauth
-vmauth_version: 1.69.0
+vmauth_version: 1.70.0
 vmauth_system_user: "vmauth"
 vmauth_system_group: "vmauth"
 vmauth_config_dir: "/etc/vmauth"
